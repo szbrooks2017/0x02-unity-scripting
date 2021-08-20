@@ -25,11 +25,11 @@ public class PlayerController : MonoBehaviour
         }
         if ( Input.GetKey("w"))
         {
-            rb.AddForce(speed * Time.deltaTime, 0, 0);
+            rb.AddForce(0, speed * Time.deltaTime, 0);
         }
         if ( Input.GetKey("s"))
         {
-            rb.AddForce(-speed * Time.deltaTime, 0, 0);
+            rb.AddForce(0, -speed * Time.deltaTime, 0);
         }
     }
 }
