@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update() {
+        if (health <= 0)
+        {
+            Debug.Log("Game Over!");
+            SceneManager.LoadScene("maze");
+        }
+    }
      void FixedUpdate()
     {
         if ( Input.GetKey("d"))
@@ -44,6 +52,10 @@ public class PlayerController : MonoBehaviour
         {
             health--;
             Debug.Log($"Health: {health}");
+        }
+        if (other.gameObject.CompareTag("Goal"))
+        {
+            Debug.Log("You win!");
         }
     }
 }
