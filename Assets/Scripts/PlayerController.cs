@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public float speed = 1000;
     private int score = 0;
+    public int health = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +34,16 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup"));
+        if (other.gameObject.CompareTag("Pickup"))
         {
             score++;
             Debug.Log($"Score: {score}");
             Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Trap"))
+        {
+            health--;
+            Debug.Log($"Health: {health}");
         }
     }
 }
